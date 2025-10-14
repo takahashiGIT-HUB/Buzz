@@ -1,0 +1,469 @@
+/* ***************************ヘッダー**************************** */
+
+/* ヘッダーの一番上のリボン */
+.top-ribbon {
+	background-color: #ff9900; /* 背景色：オレンジ系に設定 */
+	color: white; /* 文字色：白に設定 */
+	text-align: center; /* テキストの配置：中央に設定 */
+	padding: 5px 0; /* 上下の余白を設定 */
+	font-size: 14px; /* フォントサイズを設定 */
+	line-height: 1.5; /* 行の高さを設定 */
+	font-family: "メイリオ", Meiryo, sans-serif; /* フォントを指定 */
+}
+
+/* ヘッダー全体のFlexbox調整と要素間のスペース調整 */
+.header-content {
+	display: flex; /* Flexboxコンテナに設定 */
+	justify-content: space-between; /* 子要素を両端に揃えて配置 */
+	align-items: center; /* ロゴ、説明+検索バー、ハンバーガーメニューを垂直方向の中央に揃える */
+	padding: 5px 20px; /* 上下左右の余白を設定 */
+	flex-wrap: wrap; /* 画面幅が狭くなった時に子要素が折り返すように設定 */
+}
+
+/* ロゴと説明文をまとめるコンテナ */
+.logo-and-explain {
+    display: flex; /* Flexboxにする */
+    align-items: center; /* 垂直中央揃え */
+    flex-shrink: 0; /* 縮まないようにする */
+    gap: 10px; /* ロゴとexplainの間の隙間 */
+}
+
+/* ロゴの調整  */
+.logo {
+	flex-shrink: 0; /* 画面幅が狭くなっても要素が縮まないように設定 */
+	margin-right: 0px; /* 右側の余白を設定 */
+	transition: .3s; /* 大きくなる変更時間 */
+}
+
+/* ロゴのホバー */
+.logo:hover {
+  transform: scale(1.1); /* 大きくなるサイズ */
+}
+
+
+/* ロゴ画像の調整 */
+.logo img {
+	height: 140px; /* 画像の高さを設定 */
+	width: auto; /* 幅をアスペクト比に合わせて自動調整 */
+}
+
+/* ロゴの隣のサービス説明の文字 */
+.explain{
+	font-size: 0.9em; /* 文字のサイズ */
+	color: #666; /* 文字の色 */
+	margin-right: 0px; /* ロゴと検索バーの間隔を調整 */
+	white-space: nowrap; /* テキストが折り返さないように */
+	line-height: 2; /* 行の高さを調整 */	
+	margin-bottom: 0px; /* 検索バーとの間に少し余白 */
+	text-align: left; /* 中央寄せ */
+	/*margin-top: 55px;*/
+	margin-left: -20px;
+}
+
+/* 検索バーコンテナ */
+.search-bar-container {
+	flex-grow: 1; /* 残りのスペースを全て使う */
+	display: flex; /* Flexboxにする */
+	justify-content: center; /* ★★★ 水平方向の中央に配置するんや！ ★★★ */
+	align-items: center; /* 垂直方向の中央に配置する */
+	height: 140px; /* ロゴと同じ高さにする */
+	min-width: 400px; /* 検索バーが潰れないように最小幅を設定 */
+}
+
+/* 検索バー全体の調整 */
+.search-bar {
+	display: flex; /* Flexboxコンテナに設定 */
+	align-items: center; /* 垂直方向の中央に揃える */
+	max-width: 600px; /* 検索バーの最大幅を設定 */
+	/* margin: 10px 330px; */
+	margin: 0;
+	margin-left: -300px;
+}
+
+/* 検索バーの「検索キーワード:」のラベル部分 */
+.search-bar label {
+	margin-right: 10px; /* 右側の余白を設定 */
+	white-space: nowrap; /* テキストが折り返さないように設定 */
+	font-size: 14px; /* フォントサイズを設定 */
+}
+
+/* 検索バーのテキスト入力欄 */
+.search-bar input[type="text"] {
+	flex-grow: 1; /* 親要素の残りのスペースを埋めるように広がる */
+	padding: 8px; /* 内側の余白を設定 */
+	border: 1px solid #ddd; /* ボーダーを設定 */
+	border-radius: 4px; /* 角を丸くする */
+	font-size: 14px; /* フォントサイズを設定 */
+	margin-right: 5px; /* 右側の余白を設定 */
+	height: auto; /* 高さを自動に設定し、paddingで調整できるようにする */
+	box-sizing: border-box; /* paddingとborderをwidth/heightに含める */
+}
+
+/* 検索ボタン全体 */
+.search-bar button[type="submit"] {
+	background-color: rgb(241, 241, 241); /* ボタンの背景色を設定 */
+	border: 2px solid rgb(192, 192, 192); /* ボタンのボーダーを設定 */
+	padding: 5px 10px; /* 内側の余白を設定 */
+	cursor: pointer; /* マウスカーソルをポインターに変更 */
+	border-radius: 4px; /* 角を丸くする */
+	font-size: 14px; /* フォントサイズを設定 */
+	white-space: nowrap; /* テキストが折り返さないように設定 */
+	margin-left: -5px; /* 左側の余白をマイナスにして、隣の要素に近づける */
+	text-align: center; /* テキストを中央に配置 */
+	transition: .3s; /* 乗せた時の変更時間 */
+}
+/* 検索ボタン乗せた時 */
+.search-bar button:hover {
+  transform: scale(1.1);
+}
+
+/* 検索ボタンの中にある画像 */
+.search-bar button img {
+	display: inline-block; /* 画像をインラインブロック要素に設定 */
+	height: 25px; /* 画像の高さを設定 */
+	width: auto; /* 幅をアスペクト比に合わせて自動調整 */
+	vertical-align: middle; /* 画像とテキストを垂直方向の中央に揃える */
+	margin-left: -10px; /* 左側の余白をマイナスにして、テキストに近づける */
+}
+
+/* ***************************フッター**************************** */
+
+/* フッター全体 */
+footer { 
+	background-color: rgb(238, 238, 238); /* 背景色：白に設定 */
+	color: rgb(0, 0, 0); /* 文字色：黒に設定 */
+	padding: 10px 50px; /* 上下左右に余白を設定 */
+	text-align: center; /* テキストを中央に配置 */
+	font-size: 0.9em; /* フォントサイズを相対的に小さく設定 */
+	border-top: 2px solid rgb(128, 128, 128); /* 上側のボーダーラインを設定 */
+	margin-top: 50px; /* 上側の余白を設定 */
+}
+
+/* フッター内のリンクグループ（サイトマップやメニューの親要素） */
+.footer-links {
+	margin-bottom: 20px; /* 下側の余白を設定 */
+}
+
+/* フッターのリンクグループの見出し */
+.footer-links h4 {
+	color: rgb(28, 28, 28); /* 文字色：黒に設定 */
+	margin-top: 20px; /* 上側の余白を設定 */
+	margin-bottom: 40px; /* 下側の余白を設定 */
+	font-size: 1.1em; /* フォントサイズを設定 */
+}
+
+/* フッターのリンクグループのリスト全体 */
+.footer-links ul {
+	list-style: none; /* リストのマーカー（・）を非表示に設定 */
+	padding: 0; /* 内側の余白をゼロに設定 */
+	margin: 0; /* 外側の余白をゼロに設定 */
+	display: flex; /* Flexboxコンテナに設定 */
+	justify-content: center; /* 子要素を水平方向の中央に配置 */
+	flex-wrap: wrap; /* 画面幅が狭くなった時に子要素が折り返すように設定 */
+}
+
+/* フッターのリストの各項目（個々のリンク） */
+.footer-links li {
+	margin: 0 15px 10px; /* 左右と下部に余白を設定 */
+}
+
+/* フッターのリストの中にあるリンクのテキスト */
+.footer-links a {
+	color: rgb(64, 128, 128); /* リンクの文字色：通常時の色を設定 */
+	text-decoration: underline; /* リンクに下線を常に表示 */
+	transition: color 0.3s ease; 
+}
+
+/* フッターのリストの中にあるリンクにマウスカーソルを合わせた時 */
+.footer-links a:hover {
+	color: rgb(0, 0, 255); /* マウス当てた時の文字色：青に設定 */
+	text-decoration: underline; /* 下線は変わらず表示 */
+}
+
+/* フッターのクレジット表示 */
+.footer-info p {
+	margin: 0; /* 外側の余白をゼロに設定 */
+	color: rgb(128, 128, 128); /* 文字色 */
+}
+
+/* 二行目になる部分（ランキング、ログアウト）だけをずらす */
+.sub-links {
+	margin-left: 50px; /* 左からのずらし幅 */
+}
+
+/* ***************************ハンバーガーメニュー**************************** */
+/* メニュー全体の箱 */
+.hamburger-menu-container {
+    position: relative;        /* 子要素（.nav-links）を絶対位置で配置する基準にする */
+    display: flex;             /* 中のメニューを横並びにする */
+    justify-content: flex-end; /* 中のメニューを右端に寄せる */
+    align-items: center;       /* 中のメニューを垂直方向の真ん中に揃える */
+    cursor: pointer;           /* マウスのカーソルを指マーク */
+    z-index: 1000;             /* 他の要素より一番手前に表示させる */
+	flex-shrink: 0;			   /* つぶれないようにする */
+}
+
+/* ハンバーガーアイコンの箱 */
+.hamburger-icon {
+    display: block;            /* ブロック要素にする */
+    width: 30px;               /* 幅 */
+    height: 25px;              /* 高さ */
+    position: relative;        /* 中のバー（.bar）を絶対位置で配置 */
+    transition: transform 0.3s ease-in-out; /* 動きを滑らかにする */
+}
+
+/* ハンバーガーアイコンの線 */
+.bar {
+    display: block;            /* ブロック要素にする */
+    width: 100%;               /* 親要素（.hamburger-icon）と同じ幅にする */
+    height: 3px;               /* 高さ */
+    background-color: #333;    /* 色 */
+    position: absolute;        /* 親要素（.hamburger-icon）を基準に位置を決める */
+    left: 0;                   /* 左端 */
+    transition: all 0.3s ease-in-out; /* 動きを滑らかにする */
+}
+
+/* 1本目の線（一番上） */
+.bar:nth-child(1) {
+    top: 0; /* 親要素の箱の一番上にくっつける */
+}
+
+/* 2本目の線（真ん中） */
+.bar:nth-child(2) {
+    top: 50%;                 /* 親要素の箱の真ん中に持っていく */
+    transform: translateY(-50%); /* 上に半分ずらす */
+}
+
+/* 3本目の線（一番下） */
+.bar:nth-child(3) {
+    bottom: 0; /* 親要素の箱の一番下にくっつける */
+}
+
+/* メニューの項目を囲むリスト（ul） */
+.nav-links {
+    display: flex;             /* 中の要素を縦並び */
+    flex-direction: column;    /* 縦に並べる */
+    position: fixed;           /* 画面の決まった位置に固定 スクロールしても位置を保持 */
+    top: 0;                    /* 画面の一番上 */
+    right: 0;                  /* 画面の一番右 */
+    width: 250px;              /* メニューの幅 */
+    height: 100vh;             /* メニューの高さ */
+	border-radius: 50px; /* 角を丸くする */
+    background-color: white;   /* 背景色 */
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5); /* 左側に影 */
+    padding: 60px 20px;        /* 内側の余白 */
+    list-style: none;          /* リストの黒い点無し */
+    transform: translateX(100%); /* メニューを右側に自分の幅分ずらして、画面の外に隠す */
+    transition: transform 0.3s ease-in-out; /* 動きを滑らかにする */
+}
+
+/* JavaScriptでこのクラスを付けたり外したりする */
+.nav-links.active {
+    transform: translateX(0); /* 隠してたメニューを元の位置に戻す */
+}
+
+/* アクティブになった時のハンバーガーアイコンの変化 */
+.hamburger-icon.active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg); /* 一番上の線を真ん中、45度回転させて斜めにする */
+}
+.hamburger-icon.active .bar:nth-child(2) {
+    opacity: 0; /* 真ん中の線を透明にして消す */
+}
+.hamburger-icon.active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg); /* 一番下の線を真ん中、-45度回転させて斜めにする */
+}
+
+/* メニューの中にあるリンク */
+.nav-links a {
+    color: #333;             /* 文字色 */
+    text-decoration: none;   /* 下線を消す */
+    padding: 15px 0;         /* 上下余白 */
+    border-bottom: 1px solid #ddd; /* 下に薄い線を引く */
+    display: block;          /* リンク全体がクリックできるようにブロック要素にする */
+}
+
+.nav-links a:hover {
+    color: #ff9900;          /* マウスを乗せたときの文字色 */
+}
+
+
+
+/* ***************************ランキング**************************** */
+/* 全体的なレイアウト */
+.container {
+    width: 800px; /* 幅 */
+    margin: 20px auto; /* 上下左右の余白（左右は自動で中央寄せ） */
+    padding: 20px; /* 内側の余白 */
+    background-color: #f9f9f9; /* 背景色 */
+    border-radius: 8px; /* 角の丸み */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ボックスの影 */
+}
+
+h2 {
+    text-align: center; /* テキストの配置 */
+    color: #333; /* 文字の色 */
+    margin-bottom: 30px; /* 下側の余白 */
+    font-size: 2em; /* フォントサイズ */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* テキストの影 */
+}
+
+/* 各ランキング項目 */
+.ranking-item {
+    display: flex; /* 要素の配置方法（Flexbox） */
+    margin-bottom: 25px; /* 下側の余白 */
+    border: 1px solid #ddd; /* 境界線 */
+    border-radius: 6px; /* 角の丸み */
+    overflow: hidden; /* はみ出した内容の扱い */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* ボックスの影 */
+    transition: transform 0.2s ease-in-out; /* 変化のアニメーション */
+	background-color: #f0f0f0; /* 各アイテムのベース背景色を少し濃いめのグレーに */
+	background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.1) 1px, transparent 1px); /* 小さなドット */
+	background-size: 8px 8px; /* ドットの間隔と密度 */
+}
+
+.ranking-item:hover {
+    transform: translateY(-3px); /* 要素のY軸方向への移動 */
+}
+
+/* ランキング 順位と王冠 */
+.rank-with-crown {
+    position: relative; /* 重ね合わせの基準にする */
+    display: inline-block; /* 幅を内容に合わせる */
+    text-align: center; /* 数字を中央に配置 */
+}
+
+.crown-image {
+    display: block; /* 親要素いっぱいに広げる */
+    width: auto;
+    height: 50px; /* 王冠画像の高さを調整 */
+}
+
+.rank-number {
+    position: absolute; /* 王冠画像の上に重ねる */
+    top: 55%; /* 垂直方向の中央に */
+    left: 50%; /* 水平方向の中央に */
+    transform: translate(-50%, -50%); /* 中央に配置するための調整 */
+    font-size: 1.2em; /* 数字のフォントサイズ */
+    font-weight: bold; /* 数字を太字に */
+    color: #333; /* 数字の色 */
+    text-shadow: 2px 2px #fff; /* 数字に白い影をつけて見やすくする */
+}
+
+/* 上位3位の王冠画像を少し大きくする */
+.crown-top3 {
+    height: 60px;
+}
+
+/* 順位情報部分 */
+.rank-info {
+    flex: 0 0 250px; /* Flexアイテムのサイズ設定（拡大しない、縮小しない、基準幅250px） */
+    padding: 20px; /* 内側の余白 */
+    display: flex; /* 要素の配置方法（Flexbox） */
+    flex-direction: column; /* Flexアイテムの並ぶ方向 */
+    justify-content: center; /* 主軸方向の揃え方 */
+    align-items: center; /* 交差軸方向の揃え方 */
+    text-align: center; /* テキストの配置 */
+    font-weight: bold; /* フォントの太さ */
+    color: rgb(0, 0, 0); /* 文字の色 */
+}
+
+.rank-position {
+    font-size: 1.8em; /* フォントサイズ */
+    margin-bottom: 10px; /* 下側の余白 */
+}
+
+.shop-name {
+    font-size: 1.5em; /* フォントサイズ */
+    margin-bottom: 5px; /* 下側の余白 */
+    color: rgb(0, 0, 0); /* 文字の色 */
+    text-decoration: none; /* テキストの装飾 */
+	background: linear-gradient(transparent 70%, rgb(242, 231, 13) 70%);
+}
+
+.shop-name:hover {
+    text-decoration: underline; /* テキストの装飾 */
+}
+
+.shop-address, .shop-tel, .shop-no-info {
+    font-size: 0.9em; /* フォントサイズ */
+    color: rgb(0, 0, 0); /* 文字の色 */
+    margin: 2px 0; /* 上下左右の余白 */
+	text-shadow: 1px 1px 2px rgb(255, 255, 255); /* テキストの影 */
+}
+
+/* 各順位の色 */
+.rank-gold {
+    background-color: #FFD700; /* 背景色 */
+}
+
+.rank-silver {
+    background-color: #C0C0C0; /* 背景色 */
+}
+
+.rank-bronze {
+    background-color: #CD7F32; /* 背景色 */
+}
+
+.rank-normal {
+    background-color: rgb(240, 240, 240); /* 背景色 */
+}
+
+/* つぶやきコメント部分 */
+.buzz-comments {
+    flex: 1; /* Flexアイテムのサイズ設定（残りのスペースを全て使う） */
+    background-color: rgb(255, 255, 255); /* 背景色 */
+    padding: 20px; /* 内側の余白 */
+    border-left: 1px solid #ccc; /* 左側の境界線 */
+}
+
+.comment-text {
+    margin-bottom: 10px; /* 下側の余白 */
+    line-height: 1.5; /* 行の高さ */
+    color: #555; /* 文字の色 */
+    background-color: #fff; /* 背景色 */
+    padding: 10px; /* 内側の余白 */
+    border-radius: 4px; /* 角の丸み */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* ボックスの影 */
+	position: relative; /* 擬似要素の位置の基準にする */
+	margin-left: 15px; /* 吹き出しのしっぽ用に左に余白を作る */
+	border: 1px solid #333;/* 吹き出し本体に黒い枠線を追加 */
+}
+
+/* 吹き出しのしっぽ */
+.comment-text::before {
+    content: ''; /* 擬似要素には必須 */
+    position: absolute; /* 親要素（.comment-text）を基準に配置 */
+    top: 50%; /* 垂直方向の中央に */
+    left: -10px; /* 親要素の左端から少し外に出す */
+    transform: translateY(-50%); /* 垂直方向の中央に揃える */
+    border-width: 8px 10px 8px 0; /* 三角形のサイズと方向 */
+    border-style: solid;
+    border-color: transparent #fff transparent transparent; /* しっぽの色をコメント背景色と同じに */
+	z-index: 1; /* しっぽが枠線の下にならないように重ね順を調整 */
+}
+
+/* 吹き出しのしっぽの枠線 */
+.comment-text::after { /* ::before の上にもう一つ擬似要素を作って枠線にする */
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -11px; /* しっぽ本体より少し左にずらして枠線が見えるようにする */
+    transform: translateY(-50%);
+    border-width: 9px 11px 9px 0; /* しっぽ本体より少し大きめのサイズにする */
+    border-style: solid;
+    border-color: transparent #333 transparent transparent; /* 黒い枠線の色 */
+    z-index: 0; /* しっぽ本体より下に配置 */
+}
+
+.comment-text:last-child {
+    margin-bottom: 0; /* 下側の余白 */
+}
+
+/* データがない場合の表示 */
+.no-ranking-data {
+    text-align: center; /* テキストの配置 */
+    color: #888; /* 文字の色 */
+    padding: 50px; /* 内側の余白 */
+    font-size: 1.2em; /* フォントサイズ */
+}
+/* ***************************　　　　　**************************** */

@@ -1,0 +1,112 @@
+/* バズボタンの基本スタイル */
+.buzz-button {
+  background-color: #ddd;     /* デフォルト背景色 */
+  border: none;               /* 枠線なし */
+  padding: 4px 10px;          /* 内側の余白 */
+  cursor: pointer;            /* カーソルをポインターに */
+  margin-top: 5px;            /* 上部の余白 */
+  border-radius: 5px;         /* 角を丸くする */
+  font-weight: bold;          /* 文字を太く */
+  position: relative;         /* 炎を配置するための基準 */
+  overflow: hidden;           /* 炎がボタンからはみ出さないように隠す */
+  z-index: 1;                 /* ボタン本体を炎より前面に表示 */
+}
+
+/* バズ済みボタンのスタイル */
+.buzz-button.buzzed {
+  background-color: #ff9900; /* バズ済み時の背景色（オレンジ） */
+  color: white;               /* バズ済み時の文字色 */
+}
+
+/* バズ数表示のスタイル */
+.buzz-count {
+  margin-left: 8px;           /* 左側の余白 */
+  font-size: 14px;            /* 文字サイズ */
+  font-weight: bold;          /* 文字を太く */
+}
+
+/* 炎の擬似要素の共通初期設定 */
+.buzz-button::before,
+.buzz-button::after {
+    content: '';                /* 擬似要素として内容を空に設定 */
+    position: absolute;         /* ボタンに対して絶対位置で配置 */
+    border-radius: 50%;         /* 丸い形状（炎の形） */
+    /* 炎のグラデーション色（青系） */
+    background: radial-gradient(circle, #66ccff 0%, #0099ff 50%, transparent 80%);
+    filter: blur(2px);          /* 炎のぼかし効果 */
+    opacity: 0;                 /* 初期状態では炎を見せない（透明） */
+    z-index: 2;                /* ボタンの文字より後ろに炎を表示 */
+}
+
+/* 擬似要素1（小さめの炎のサイズと初期位置） */
+.buzz-button::before {
+    width: 60px;                /* 炎の幅 */
+    height: 15px;               /* 炎の高さ */
+    top: 50%;                   /* ボタンの垂直方向中央に配置 */
+    left: 50%;                  /* ボタンの水平方向中央に配置 */
+    transform: translate(-50%, 50%) scale(0.2); /* 初期位置：下から小さく開始 */
+}
+
+/* 擬似要素2（大きめの炎のサイズと初期位置） */
+.buzz-button::after {
+    width: 80px;                /* 炎の幅 */
+    height: 20px;               /* 炎の高さ */
+    top: 50%;                   /* ボタンの垂直方向中央に配置 */
+    left: 50%;                  /* ボタンの水平方向中央に配置 */
+    transform: translate(-50%, 60%) scale(0.3); /* 初期位置：下から小さく開始（少し低め） */
+}
+
+.buzz-button:hover {
+  opacity: 0.6;
+}
+
+/* バズ済み（.buzzed）クラスが付いた時に炎アニメーションを実行 */
+.buzz-button.buzzed::before {
+    animation: fire-flame-small 0.8s ease-out forwards; /* アニメーション実行と終了状態保持 */
+    animation-delay: 0s;        /* 遅延なし */
+}
+
+.buzz-button.buzzed::after {
+    animation: fire-flame-large 0.8s ease-out forwards; /* アニメーション実行と終了状態保持 */
+    animation-delay: 0.2s;      /* 少し遅れて開始 */
+}
+
+/* 小さい炎が下から燃え上がって消える動きの定義 */
+@keyframes fire-flame-small {
+    0% {
+        opacity: 0;                         /* 最初は透明 */
+        transform: translate(-50%, 50%) scale(0.2); /* 下から小さく開始 */
+    }
+    30% {
+        opacity: 0.8;                       /* 途中で見えるように */
+        transform: translate(-50%, -20%) scale(0.8); /* 上へ伸びて少し大きく */
+    }
+    70% {
+        opacity: 0.4;                       /* 薄く */
+        transform: translate(-50%, -80%) scale(0.6); /* さらに上へ移動し、縮む */
+    }
+    100% {
+        opacity: 0;                         /* 完全に透明になり消える */
+        transform: translate(-50%, -150%) scale(0.1); /* 最後に小さくして消える */
+    }
+}
+
+/* 大きい炎が下から燃え上がって消える動きの定義 */
+@keyframes fire-flame-large {
+    0% {
+        opacity: 0;                         /* 最初は透明 */
+        transform: translate(-50%, 60%) scale(0.3); /* 下から小さく開始 */
+    }
+    40% {
+        opacity: 0.9;                       /* 途中ではっきり見えるように */
+        transform: translate(-50%, -10%) scale(1); /* 上へ伸びて大きく */
+    }
+    80% {
+        opacity: 0.5;                       /* 薄く */
+        transform: translate(-50%, -70%) scale(0.8); /* さらに上へ移動し、縮む */
+    }
+    100% {
+        opacity: 0;                         /* 完全に透明になり消える */
+        transform: translate(-50%, -140%) scale(0.2); /* 最後に小さくして消える */
+    }
+}

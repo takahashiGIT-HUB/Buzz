@@ -1,0 +1,419 @@
+/* ==================== 基本設定 ==================== */
+
+/* 全体の基本フォント・背景・文字色など */
+body {
+	background-color: #fff8f0;
+	margin: 0;
+	font-family: sans-serif;
+	min-height: 100vh;
+	color: #333;
+}
+
+/* 見出し（大） */
+h1 {
+    font-size: 2.5em;
+    color: #ff9900;
+    margin-bottom: 10px;
+}
+
+/* 見出し（中） */
+h2 {
+    font-size: 1.5em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* 段落テキスト */
+p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+/* ==================== ヘッダー ==================== */
+
+/* ヘッダーの一番上のリボン */
+.top-ribbon {
+    background-color: #ff9900;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: "メイリオ", Meiryo, sans-serif;
+}
+
+/* ヘッダー全体のFlexbox調整と要素間のスペース調整 */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    flex-wrap: wrap;
+}
+
+/* ロゴと説明文をまとめるコンテナ */
+.logo-and-explain {
+    display: flex; /* Flexboxにする */
+    align-items: center; /* 垂直中央揃え */
+    flex-shrink: 0; /* 縮まないようにする */
+    gap: 10px; /* ロゴとexplainの間の隙間 */
+}
+
+/* ロゴの調整 */
+.logo {
+    flex-shrink: 0;
+    margin-right: 0px;
+}
+
+/* ロゴ画像の調整 */
+.logo img {
+    height: 140px;
+    width: auto;
+}
+
+/* ロゴの隣のサービス説明の文字 */
+.explain {
+	font-size: 0.9em;
+	color: #666;
+	margin-right: 0px;
+	margin-left: -30px;
+	white-space: nowrap;
+	line-height: 2;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	text-align: left;
+	margin-left: -20px;
+}
+/* 説明と検索バーをまとめるコンテナ */
+.main-header-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    margin: 0 20px;
+}
+
+/* ==================== トップページ：メインコンテンツ ==================== */
+
+/* メイン領域全体（スライド＋テキスト） */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* スライドショー全体枠 */
+.slideshow {
+    flex: 1 1 50%;
+    max-width: 600px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 各スライド画像の共通スタイル */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #fff;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+}
+
+/* 表示中スライド */
+.slide.active {
+    opacity: 1 !important;
+    z-index: 10 !important;
+}
+
+/* メインテキスト部分のコンテナ */
+.main-container {
+    flex: 1 1 50%;
+    max-width: 600px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* ==================== 共通：ボタン・リンクスタイル ==================== */
+
+/* ボタン風リンク（共通） */
+.button-link {
+    display: inline-block;
+    background-color: #ff9900;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1em;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* ボタンリンクのホバー時 */
+.button-link:hover {
+    background-color: #e68a00;
+}
+
+/* ボタンリンク：幅100% */
+.button-link.full-width {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 0;
+    margin: 20px 0 10px 0;
+    font-size: 1em;
+    text-align: center;
+}
+
+/* 戻るリンク */
+.back-link {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #ff9900;
+    font-size: 0.9em;
+}
+
+/* 戻るリンクのホバー時 */
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* ==================== ログイン・登録ページ ==================== */
+
+/* ログイン・登録ページの中央寄せ用ラッパー */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* ログイン・登録フォームの全体ボックス */
+.login-container {
+    max-width: 400px;
+    width: 100%;
+    padding: 30px 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 40px auto;
+}
+
+/* ログイン・登録見出し */
+.login-container h1 {
+    color: #ff9900;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+}
+
+/* ラベルのスタイル */
+.login-container label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 0.95em;
+    color: #333;
+}
+
+/* テキスト入力欄のスタイル */
+.form-group input[type="text"],
+.form-group input[type="password"] {
+	width: 100%;                /* 幅は最大 */
+	    padding: 10px 8px;          /* 少し広めの内側余白 */
+	    margin-top: 5px;            /* 上の余白はそのまま */
+	    border: 1px solid #ddd;     /* 色は.form-groupと同じ薄グレー */
+	    border-radius: 4px;         /* 少し控えめな丸み */
+	    font-size: 1em;             /* 標準のフォントサイズ */
+	    box-sizing: border-box;     /* 枠・余白を含めた幅指定 */
+	}
+
+/* プロフィール入力欄のスタイル */
+.profile-textarea {
+    width: 100%;
+    padding: 10px 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* エラーメッセージ表示 */
+.error-msg {
+    color: red;
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+/* ==================== 確認画面テーブル ==================== */
+.confirm-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.confirm-table th,
+.confirm-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    vertical-align: top;
+}
+
+.confirm-table th {
+    width: 30%;
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.confirm-table td.profile-cell {
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.profile-box {
+    display: block;
+    width: 100%;
+    min-height: 120px;
+    max-height: 120px;
+    overflow-y: auto;
+    overflow-x: hidden;  /* 横スクロール禁止 */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    white-space: pre-wrap;       /* 改行＆折り返し対応 */
+    word-break: break-word;      /* 長文でも折り返す */
+    line-height: 1.5;
+    font-size: 0.95em;
+    box-sizing: border-box;
+}
+
+/* ==================== フォーム補助スタイル ==================== */
+
+/* 入力補足ルール（フォーム下の説明など） */
+form small {
+    font-size: 0.9em;
+    color: #666;
+    display: block;
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+/* ==================== アニメーション用 ==================== */
+
+/* 見出し・テキストのフェードアップ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-container h1,
+.main-container h2,
+.main-container p {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.main-container h1 {
+	text-align: center;
+	font-size: 2.5em;
+	color: #ff9900;
+	font-weight: bold;
+}
+
+.main-container h2 {
+    animation-delay: 0.4s;
+}
+
+.main-container p {
+    animation-delay: 0.7s;
+}
+
+/* タイトル文字 */
+.buzz-title {
+	color: #ff9900;
+	font-weight: bold;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+	
+/* 横並びに表示するためのFlexコンテナ */
+.top-page .register-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px; /* テキストとボタンの間隔 */
+    margin-top: 20px;
+    animation: fadeInUp 1.2s ease-out forwards;
+    animation-delay: 1.2s; /* ボタンより少し遅く */
+    opacity: 0;
+}
+
+/* テキスト側のスタイル */
+.register-label {
+    color: #666;
+    font-size: 1em;
+    white-space: nowrap;
+}
+
+/* ボタンのポップアップ風表示 */
+.top-page .button-link {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: popUp 1.2s ease-out forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes popUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== フッター ==================== */
+
+/* フッター全体 */
+.footer {
+    background-color: rgb(238, 238, 238);
+    color: rgb(0, 0, 0);
+    padding: 10px 50px;
+    text-align: center;
+    font-size: 0.9em;
+    border-top: 2px solid rgb(128, 128, 128);
+    margin-top: 50px;
+}
+
+/* フッターのクレジット表示 */
+.footer-info p {
+    margin: 0;
+    color: rgb(128, 128, 128);
+}

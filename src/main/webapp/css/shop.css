@@ -1,0 +1,512 @@
+@charset "UTF-8";
+/* *************************** 店舗情報編集ページ (ShopInfo.jsp) **************************** */
+
+/* 全体的なコンテナ */
+.shop-info-container {
+    width: 800px;             /* コンテナの幅 */
+    margin: 20px auto;        /* 上下20px、左右autoで中央配置 */
+    padding: 20px;            /* 内側の余白 */
+    background-color: #f9f9f9; /* 背景色 */
+    border-radius: 8px;       /* 角の丸み */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ボックスの影 */
+}
+
+/* ページタイトル */
+.shop-info-container h1 {
+    text-align: center;       /* テキストを中央揃え */
+    color: #333;              /* 文字色 */
+    margin-bottom: 30px;      /* 下の要素との余白 */
+    font-size: 2em;           /* フォントサイズ */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* テキストの影 */
+}
+
+/* フォームグループ（ラベルと入力欄のセット） */
+.form-group {
+    margin-bottom: 15px;      /* 各フォーム項目間の下余白 */
+}
+
+/* ラベルのスタイル */
+.form-group label {
+    display: block;           /* ブロック要素にして入力欄の上に配置 */
+    margin-bottom: 5px;       /* ラベルと入力欄の間の下余白 */
+    font-weight: bold;        /* 文字を太字に */
+    color: #555;              /* 文字色 */
+    font-size: 1.1em;         /* フォントサイズ */
+}
+
+/* テキスト入力欄のスタイル */
+.form-group input[type="text"] {
+    width: calc(100% - 22px); /* 親要素の幅からテキストボックスと枠線を引いた幅 */
+    padding: 10px;            /* テキストボックスの幅 */
+    border: 1px solid #ddd;   /* 枠線のスタイルと色 */
+    border-radius: 4px;       /* 角の丸み */
+    font-size: 1em;           /* フォントサイズ */
+    box-sizing: border-box;   /* テキストボックスと枠線をwidthに含める */
+}
+
+/* ボタンをまとめるグループ */
+.button-group {
+    display: flex;            /* Flexboxコンテナに設定（ボタンを横並びにするため） */
+    justify-content: center;  /* 子要素（ボタン）を中央に配置 */
+    gap: 20px;                /* 子要素（ボタン）間の隙間 */
+    margin-top: 30px;         /* 上のフォームとの余白 */
+    margin-bottom: 20px;      /* 下のフッターとの余白 */
+}
+
+/* 登録ボタンのスタイル */
+.shop-info-container button[type="submit"] {
+    padding: 12px 20px;       /* 内側の余白 */
+    background-color: #ff9900; /* 背景色（オレンジ系） */
+    color: white;             /* 文字色 */
+    border: none;             /* ボーダーなし */
+    border-radius: 5px;       /* 角の丸み */
+    font-size: 1.1em;         /* フォントサイズ */
+    cursor: pointer;          /* マウスカーソルをポインターに */
+    transition: background-color 0.3s ease; /* 背景色の変化を滑らかに */
+    flex-shrink: 0;           /* 親の幅が狭くなっても要素が縮まない */
+    min-width: 120px;         /* ボタンの最低幅 */
+}
+
+/* 登録ボタンにカーソルを合わせた時 */
+.shop-info-container button[type="submit"]:hover {
+    background-color: #e68a00; /* 背景色（濃いオレンジ系） */
+}
+
+/* キャンセルボタンのスタイル */
+.cancel-button {
+    display: inline-block;    /* ボタンのように見せるためインラインブロック要素に */
+    padding: 12px 20px;       /* 内側の余白 */
+    background-color: #ccc;   /* 背景色（グレー系） */
+    color: #333;              /* 文字色 */
+    border: none;             /* ボーダーなし */
+    border-radius: 5px;       /* 角の丸み */
+    font-size: 1.1em;         /* フォントサイズ */
+    text-decoration: none;    /* 下線なし */
+    cursor: pointer;          /* マウスカーソルをポインターに */
+    transition: background-color 0.3s ease; /* 背景色の変化を滑らかに */
+    flex-shrink: 0;           /* 親の幅が狭くなっても要素が縮まない */
+    min-width: 120px;         /* ボタンの最低幅 */
+    text-align: center;       /* テキストを中央揃え */
+}
+
+/* キャンセルボタンにカーソルを合わせた時 */
+.cancel-button:hover {
+    background-color: #b3b3b3; /* 背景色（濃いグレー系） */
+}
+
+
+
+
+/* *************************** 店舗情報表示ページ (ShopInfo.jsp) **************************** */
+
+/* 全体的なコンテナ  */
+.shop-detail-container {
+    width: 800px;             /* コンテナの幅 */
+    margin: 20px auto;        /* 上下20px、左右autoで中央配置 */
+    padding: 20px;            /* 内側の余白 */
+    background-color: #f9f9f9; /* 背景色 */
+    border-radius: 8px;       /* 角の丸み */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ボックスの影 */
+}
+
+/* ページタイトル */
+.shop-detail-container h1 {
+    text-align: center;       /* テキストを中央揃え */
+    color: #333;              /* 文字色 */
+    margin-bottom: 30px;      /* 下の要素との余白 */
+    font-size: 2em;           /* フォントサイズ */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* テキストの影 */
+}
+
+/* 画像とテキスト情報を横並びにするラッパー */
+.shop-content-wrapper {
+    display: flex;            /* 横並び */
+    align-items: center;  /* 子要素を中央に揃える */
+    gap: 30px;                /* 画像とテキストの間の隙間 */
+    margin-bottom: 20px;      /* 下の編集ボタンなどとの余白 */
+    
+    justify-content: center;  /* Flexアイテム全体を中央寄せ */
+}
+
+/* 画像表示セクション */
+.shop-image-section {
+    flex: 0 1 300px;          /* 縮むことを許可 ベース幅は300px */
+    max-width: 100%;          /* 親要素を超えないように */
+    text-align: center;       /* 画像を中央寄せにするため */
+	box-sizing: border-box;   /* パディングやボーダーを含めて幅が計算される */
+}
+
+/* 店舗メイン画像 (登録画像あり/なし両方に対応) */
+.shop-image-section img{
+	max-width: 300px;         /* 画像の最大幅 */
+	height: auto;             /* アスペクト比を維持 */
+	border-radius: 12px;       /* 角を丸くする */
+	box-shadow: 0 2px 5px rgba(0,0,0,0.4); /* 画像に影 */
+}
+
+/* 店舗情報表示セクション（テキスト情報部分） */
+.shop-info-section {
+	flex-grow: 1; /* 残りのスペースを全て埋めるように伸びる */
+	flex-basis: 0; /* ベース幅を0にする */
+	text-align: left; /* テキスト情報を左揃えにする */
+	min-width: 380px;         /* 縮み幅調整 */
+	
+    /*max-width: 600px; /* 情報表示エリアの最大幅 */
+    /*margin: 0 auto; /* 中央寄せ */
+    /*padding-top: 50px; /* 上の画像との余白 */
+    /*border-top: 1px solid #eee; /* 上に区切り線 */
+}
+
+/* 各情報項目 */
+.info-item {
+    margin-bottom: 15px; /* 各項目間の下余白 */
+    line-height: 1.6; /* 行の高さ */
+    display: flex; /* ラベルと値を横並びにする */
+    /*flex-wrap: wrap; /* 必要なら折り返す */
+	align-items: baseline; /* ベースの行を揃える */
+	overflow-wrap: break-word; /* 行を揃える */
+	word-wrap: break-word; /* 互換性のため */
+}
+
+/* 情報項目のラベル */
+.info-label {
+    font-weight: bold; /* 太字 */
+    color: #555; /* 文字色 */
+    min-width: 70px; /* ラベルの最低幅 */
+    flex-shrink: 0; /* 縮まない */
+}
+
+/* 情報項目の値 */
+.info-value {
+    color: #333; /* 文字色 */
+    flex-grow: 1; /* 残りのスペースを埋める */
+	word-break: break-all; /* 長い文字を折り返す */
+}
+
+/* URLリンクのスタイル */
+.info-value a {
+    color: rgb(64, 128, 128); /* フッターのリンク色を参考 */
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.info-value a:hover {
+    color: rgb(0, 0, 255); /* フッターのホバー色を参考 */
+}
+
+/* 編集ボタンのスタイル */
+.edit-button {
+    display: block; /* ブロック要素にして中央配置しやすくする */
+    width: 200px; /* ボタンの幅 */
+    padding: 12px 20px; /* 内側の余白 */
+    background-color: #ff9900; /* オレンジ系の色 */
+    color: white; /* 文字色 */
+    border: none; /* ボーダーなし */
+    border-radius: 5px; /* 角を丸くする */
+    font-size: 1.1em; /* フォントサイズ */
+    cursor: pointer; /* マウスカーソルをポインターに */
+    margin: 30px auto 20px auto; /* 上下に余白、左右autoで中央配置 */
+    transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+}
+
+.edit-button:hover {
+    background-color: #e68a00; /* ホバー時の色を少し濃くする */
+}
+
+/* *************************** 店舗検索結果ページ (searchSelect.jsp) **************************** */
+
+/* 検索フォームと新規店舗登録フォームの共通スタイル */
+.shop-form-section {
+    width: 800px;             /* コンテナの幅 */
+    margin: 20px auto;        /* 上下20px、左右autoで中央配置 */
+    padding: 20px;            /* 内側の余白 */
+    background-color: #f9f9f9; /* 背景色 */
+    border-radius: 8px;       /* 角の丸み */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ボックスの影 */
+    margin-bottom: 30px;      /* 次のセクションとの余白 */
+	display: flex;            /* Flexboxにする */
+    flex-direction: column;   /* 縦並びにする */
+    align-items: center;      /* 子要素を水平方向の中央に配置 */
+}
+
+/* h2タグ部分 */
+.shop-form-section h2 {
+    text-align: center;       /* テキストを中央揃え */
+    color: #333;              /* 文字色 */
+    margin-bottom: 20px;      /* 下の要素との余白 */
+    font-size: 1.8em;         /* フォントサイズ */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* テキストの影 */
+}
+
+/* ラベルのスタイル */
+.shop-form-group label {
+    display: block;           /* ブロック要素にして入力欄の上に配置 */
+    margin-bottom: 5px;       /* ラベルと入力欄の間の下余白 */
+    font-weight: bold;        /* 文字を太字に */
+    color: #555;              /* 文字色 */
+    font-size: 1.1em;         /* フォントサイズ */
+}
+
+/* フォーム内のボタンのスタイル (検索ボタン、登録ボタン) */
+.shop-form-section button[type="submit"] {
+    padding: 10px 20px;       /* 内側の余白 */
+    background-color: #ff9900; /* 背景色（オレンジ系） */
+    color: white;             /* 文字色 */
+    border: none;             /* ボーダーなし */
+    border-radius: 5px;       /* 角の丸み */
+    font-size: 1.1em;         /* フォントサイズ */
+    cursor: pointer;          /* マウスカーソルをポインターに */
+    transition: background-color 0.3s ease; /* 背景色の変化を滑らかに */
+    min-width: 100px;         /* ボタンの最低幅 */
+    margin-top: 10px;         /* 上の要素との余白 */
+}
+
+.shop-form-section button[type="submit"]:hover {
+    background-color: #e68a00; /* 背景色（濃いオレンジ系） */
+}
+
+/* 検索フォームのulタグをリセット */
+.shop-search-form ul {
+    list-style: none; /* リストのマーカーを非表示 */
+    padding: 0;       /* 内側の余白をなくす */
+    margin: 0;        /* 外側の余白をなくす */
+}
+
+/* 検索結果のテーブル全体 */
+.shop-list-table-container {
+    width: 800px;             /* コンテナの幅 */
+    margin: 20px auto;        /* 上下20px、左右autoで中央配置 */
+    padding: 20px;            /* 内側の余白 */
+    background-color: #f9f9f9; /* 背景色 */
+    border-radius: 8px;       /* 角の丸み */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ボックスの影 */
+    overflow-x: auto;         /* 横スクロールが必要な場合に表示 */
+}
+
+.shop-list-table-container h2 {
+    text-align: center;       /* テキストを中央揃え */
+    color: #333;              /* 文字色 */
+    margin-bottom: 20px;      /* 下の要素との余白 */
+    font-size: 1.8em;         /* フォントサイズ */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* テキストの影 */
+}
+
+.shop-list-table {
+    width: 100%;              /* 親要素の幅いっぱいに広がる */
+    border-collapse: collapse; /* テーブルの罫線を重ねる */
+    margin-top: 20px;         /* 上の要素との余白 */
+}
+
+.shop-list-table th, .shop-list-table td {
+    border: 1px solid #ddd;   /* 罫線のスタイルと色 */
+    padding: 10px;            /* セル内の余白 */
+    text-align: left;         /* テキストを左揃え */
+    vertical-align: middle;   /* セルの内容を垂直方向の中央に */
+}
+
+.shop-list-table th {
+    background-color: #f2f2f2; /* ヘッダーの背景色 */
+    font-weight: bold;        /* 太字 */
+    color: #333;              /* 文字色 */
+}
+
+.shop-list-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* 偶数行の背景色 */
+}
+
+.shop-list-table tr:hover {
+    background-color: #eef;   /* ホバー時の背景色 */
+}
+
+/* URLリンクのスタイル */
+.shop-list-table a {
+    color: rgb(64, 128, 128); /* フッターのリンク色を参考 */
+    text-decoration: underline;
+    transition: color 0.3s ease;
+    display: inline-block; /* URLが長くなったときに折り返すために必要 */
+    word-break: break-all; /* 単語の途中でも改行する */
+    overflow-wrap: break-word; /* 溢れる単語を適切に折り返す */
+}
+
+.shop-list-table a:hover {
+    color: rgb(0, 0, 255); /* フッターのホバー色を参考 */
+}
+
+/* テーブル内の操作ボタンのコンテナ */
+.shop-list-table td form {
+    display: inline-block;    /* ボタンを横並びに */
+    margin: 5px 2px;          /* 上下5px、左右2pxのマージンを設定 */
+    vertical-align: middle;   /* ボタンが中央に揃うように調整 */
+}
+
+/* テーブル内の操作ボタン */
+.shop-list-table td button {
+    padding: 8px 15px;        /* 内側の余白 */
+    background-color: #ff9900; /* 背景色（オレンジ系） */
+    color: white;             /* 文字色 */
+    border: none;             /* ボーダーなし */
+    border-radius: 4px;       /* 角の丸み */
+    font-size: 0.9em;         /* フォントサイズ */
+    cursor: pointer;          /* マウスカーソルをポインターに */
+    transition: background-color 0.3s ease; /* ホバー時の変化を滑らかに */
+}
+
+.shop-list-table td button:hover {
+    background-color: #e68a00; /* ホバー時の背景色 */
+}
+
+/* 検索フォームのボタンを中央配置 */
+.shop-form-section.shop-search-form form {
+    display: flex;            /* Flexboxにする */
+    flex-direction: column;   /* 縦並びにする */
+    align-items: center;      /* フォーム内の要素を中央揃えにする */
+}
+
+/* 新規店舗登録フォームのボタンを中央配置 */
+.shop-form-section > form:last-of-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* エラーメッセージと成功メッセージ */
+.shop-message-container {
+    width: 800px;
+    margin: 0 auto 20px auto; /* 中央配置で下部に余白 */
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.shop-message-container p {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.shop-message-container .error-message {
+    color: red;
+    background-color: #ffe0e0;
+    border: 1px solid red;
+}
+
+.shop-message-container .success-message {
+    color: green;
+    background-color: #e0ffe0;
+    border: 1px solid green;
+}
+
+/* 検索フォームの入力欄を囲むdivの幅 */
+.search-form-group {
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* 新規店舗登録フォームの入力欄を囲むdivの幅 */
+.new-shop-form-group {
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
+input#newShopAddressInput,
+input#newShopURLInput{
+    width: 800px;
+    height: 40px;
+    padding: 12px;
+	font-size: 1.1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input#newShopNameInput,
+input#newShopTelInput{
+	width: 800px;
+	height: 40px;
+	padding: 12px;
+	font-size: 1.1em;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	box-sizing: border-box;	
+	display: block; /* ブロックレベル要素にする */
+	margin: 0 auto; /* 中央揃え */
+}
+
+input#searchNameInput {
+    width: 500px ;
+    height: 40px;
+    padding-top: 12px;
+    font-size: 1.1em;
+    box-sizing: border-box;
+}
+
+
+/* ページ全体の背景を薄いグレーに */
+body {
+  background-color: #fff8f0;/* ほんのりクリーム色で温かみUP */
+  margin: 0;
+  font-family: sans-serif;
+  min-height: 100vh;
+}
+
+/* *************************** 店舗情報カード (searchResult.jsp) **************************** */
+
+.shop-card {
+  background-color: #ffffff; /* 白い背景 */
+  border: 1px solid #eee;   /* 薄いボーダー */
+  border-radius: 12px;       /* 角を丸く */
+  padding: 15px 20px;        /* 内側の余白 */
+  margin: 20px auto;         /* 上下20px、左右autoで中央配置 */
+  max-width: 600px;          /* 最大幅を制限 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 影 */
+  line-height: 1.6;          /* 行の高さ調整 */
+  position: relative;        /*  */
+  transition: transform 0.2s ease-in-out; /* ホバーで柔らかく */
+}
+
+.shop-card:hover {
+  transform: translateY(-5px); /* ホバーで少し持ち上がる */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12); /* 影ちょっと濃く */
+}
+
+.shop-card p {
+  margin-bottom: 8px; /* 各情報行の下余白 */
+  display: flex; /* 開始を揃える */
+}
+
+.shop-card strong {
+  color: rgb(0, 0, 0); /* ラベルの色 */
+  min-width: 80px; /* ラベルの幅を少し広げて揃える */
+  flex-shrink: 0; /* ラベルが縮まないようにする */
+  text-align: left; /* ラベル内のテキストを左揃えにする */
+}
+
+.shop-card span,
+.shop-card a {
+	flex-grow: 1; /* 残りのスペースを埋めて、長い値も折り返す */
+	word-break: break-all; /* 長い単語やURLを強制的に折り返す */
+	overflow-wrap: break-word; /* モダンブラウザ向けの同じ効果 */
+}
+
+.shop-card a:hover {
+    color: #e68a00; /* ホバー時は濃いオレンジに */
+}
+
+/* URLラベルとaタグの調整 */
+.shop-card label {
+    display: flex; /* ラベル全体もFlexboxにする */
+    align-items: baseline;
+    margin-bottom: 8px; /* 他のpタグと合わせる */
+}
+
+.shop-card label strong {
+	min-width: 80px;
+    flex-shrink: 0; /* 縮まない */
+}
+.shop-card label a {
+    flex-grow: 1; /* 残りのスペースを埋める */
+	word-break: break-all;
+	overflow-wrap: break-word;
+}

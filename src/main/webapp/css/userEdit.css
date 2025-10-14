@@ -1,0 +1,481 @@
+/* ***************************ヘッダー**************************** */
+
+/* ヘッダーの一番上のリボン */
+.top-ribbon {
+	background-color: #ff9900; /* 背景色：オレンジ系に設定 */
+	color: white; /* 文字色：白に設定 */
+	text-align: center; /* テキストの配置：中央に設定 */
+	padding: 5px 0; /* 上下の余白を設定 */
+	font-size: 14px; /* フォントサイズを設定 */
+	line-height: 1.5; /* 行の高さを設定 */
+	font-family: "メイリオ", Meiryo, sans-serif; /* フォントを指定 */
+}
+
+/* ヘッダー全体のFlexbox調整と要素間のスペース調整 */
+.header-content {
+	display: flex; /* Flexboxコンテナに設定 */
+	justify-content: space-between; /* 子要素を両端に揃えて配置 */
+	align-items: center; /* ロゴ、説明+検索バー、ハンバーガーメニューを垂直方向の中央に揃える */
+	padding: 5px 20px; /* 上下左右の余白を設定 */
+	flex-wrap: wrap; /* 画面幅が狭くなった時に子要素が折り返すように設定 */
+}
+
+/* ロゴと説明文をまとめるコンテナ */
+.logo-and-explain {
+    display: flex; /* Flexboxにする */
+    align-items: center; /* 垂直中央揃え */
+    flex-shrink: 0; /* 縮まないようにする */
+    gap: 10px; /* ロゴとexplainの間の隙間 */
+}
+
+/* ロゴの調整  */
+.logo {
+	flex-shrink: 0; /* 画面幅が狭くなっても要素が縮まないように設定 */
+	margin-right: 0px; /* 右側の余白を設定 */
+}
+
+/* ロゴ画像の調整 */
+.logo img {
+	height: 140px; /* 画像の高さを設定 */
+	width: auto; /* 幅をアスペクト比に合わせて自動調整 */
+}
+
+/* ロゴの隣のサービス説明の文字 */
+.explain{
+	font-size: 0.9em; /* 文字のサイズ */
+	color: #666; /* 文字の色 */
+	margin-right: 0px; /* ロゴと検索バーの間隔を調整 */
+	white-space: nowrap; /* テキストが折り返さないように */
+	line-height: 2; /* 行の高さを調整 */	
+	margin-bottom: 0px; /* 検索バーとの間に少し余白 */
+	text-align: left; /* 中央寄せ */
+	/*margin-top: 55px;*/
+	margin-left: -20px;
+}
+
+/* 検索バーコンテナ */
+.search-bar-container {
+	flex-grow: 1; /* 残りのスペースを全て使う */
+	display: flex; /* Flexboxにする */
+	justify-content: center; /* ★★★ 水平方向の中央に配置するんや！ ★★★ */
+	align-items: center; /* 垂直方向の中央に配置する */
+	height: 140px; /* ロゴと同じ高さにする */
+	min-width: 400px; /* 検索バーが潰れないように最小幅を設定 */
+}
+
+/* 検索バー全体の調整 */
+.search-bar {
+	display: flex; /* Flexboxコンテナに設定 */
+	align-items: center; /* 垂直方向の中央に揃える */
+	max-width: 600px; /* 検索バーの最大幅を設定 */
+	/* margin: 10px 330px; */
+	margin: 0;
+	margin-left: -300px;
+}
+
+/* 検索バーの「検索キーワード:」のラベル部分 */
+.search-bar label {
+	margin-right: 10px; /* 右側の余白を設定 */
+	white-space: nowrap; /* テキストが折り返さないように設定 */
+	font-size: 14px; /* フォントサイズを設定 */
+}
+
+/* 検索バーのテキスト入力欄 */
+.search-bar input[type="text"] {
+	flex-grow: 1; /* 親要素の残りのスペースを埋めるように広がる */
+	padding: 8px; /* 内側の余白を設定 */
+	border: 1px solid #ddd; /* ボーダーを設定 */
+	border-radius: 4px; /* 角を丸くする */
+	font-size: 14px; /* フォントサイズを設定 */
+	margin-right: 5px; /* 右側の余白を設定 */
+	height: auto; /* 高さを自動に設定し、paddingで調整できるようにする */
+	box-sizing: border-box; /* paddingとborderをwidth/heightに含める */
+}
+
+/* 検索ボタン全体 */
+.search-bar button[type="submit"] {
+	background-color: rgb(241, 241, 241); /* ボタンの背景色を設定 */
+	border: 2px solid rgb(192, 192, 192); /* ボタンのボーダーを設定 */
+	padding: 5px 10px; /* 内側の余白を設定 */
+	cursor: pointer; /* マウスカーソルをポインターに変更 */
+	border-radius: 4px; /* 角を丸くする */
+	font-size: 14px; /* フォントサイズを設定 */
+	white-space: nowrap; /* テキストが折り返さないように設定 */
+	margin-left: -5px; /* 左側の余白をマイナスにして、隣の要素に近づける */
+	text-align: center; /* テキストを中央に配置 */
+}
+
+/* 検索ボタンの中にある画像 */
+.search-bar button img {
+	display: inline-block; /* 画像をインラインブロック要素に設定 */
+	height: 25px; /* 画像の高さを設定 */
+	width: auto; /* 幅をアスペクト比に合わせて自動調整 */
+	vertical-align: middle; /* 画像とテキストを垂直方向の中央に揃える */
+	margin-left: -10px; /* 左側の余白をマイナスにして、テキストに近づける */
+}
+
+/* ***************************フッター**************************** */
+
+/* フッター全体 */
+footer { 
+	background-color: rgb(238, 238, 238); /* 背景色：白に設定 */
+	color: rgb(0, 0, 0); /* 文字色：黒に設定 */
+	padding: 10px 50px; /* 上下左右に余白を設定 */
+	text-align: center; /* テキストを中央に配置 */
+	font-size: 0.9em; /* フォントサイズを相対的に小さく設定 */
+	border-top: 2px solid rgb(128, 128, 128); /* 上側のボーダーラインを設定 */
+	margin-top: 50px; /* 上側の余白を設定 */
+}
+
+/* フッター内のリンクグループ（サイトマップやメニューの親要素） */
+.footer-links {
+	margin-bottom: 20px; /* 下側の余白を設定 */
+}
+
+/* フッターのリンクグループの見出し */
+.footer-links h4 {
+	color: rgb(28, 28, 28); /* 文字色：黒に設定 */
+	margin-top: 20px; /* 上側の余白を設定 */
+	margin-bottom: 40px; /* 下側の余白を設定 */
+	font-size: 1.1em; /* フォントサイズを設定 */
+}
+
+/* フッターのリンクグループのリスト全体 */
+.footer-links ul {
+	list-style: none; /* リストのマーカー（・）を非表示に設定 */
+	padding: 0; /* 内側の余白をゼロに設定 */
+	margin: 0; /* 外側の余白をゼロに設定 */
+	display: flex; /* Flexboxコンテナに設定 */
+	justify-content: center; /* 子要素を水平方向の中央に配置 */
+	flex-wrap: wrap; /* 画面幅が狭くなった時に子要素が折り返すように設定 */
+}
+
+/* フッターのリストの各項目（個々のリンク） */
+.footer-links li {
+	margin: 0 15px 10px; /* 左右と下部に余白を設定 */
+}
+
+/* フッターのリストの中にあるリンクのテキスト */
+.footer-links a {
+	color: rgb(64, 128, 128); /* リンクの文字色：通常時の色を設定 */
+	text-decoration: underline; /* リンクに下線を常に表示 */
+	transition: color 0.3s ease; 
+}
+
+/* フッターのリストの中にあるリンクにマウスカーソルを合わせた時 */
+.footer-links a:hover {
+	color: rgb(0, 0, 255); /* マウス当てた時の文字色：青に設定 */
+	text-decoration: underline; /* 下線は変わらず表示 */
+}
+
+/* フッターのクレジット表示 */
+.footer-info p {
+	margin: 0; /* 外側の余白をゼロに設定 */
+	color: rgb(128, 128, 128); /* 文字色 */
+}
+
+/* 二行目になる部分（ランキング、ログアウト）だけをずらす */
+.sub-links {
+	margin-left: 50px; /* 左からのずらし幅 */
+}
+
+/* ***************************ハンバーガーメニュー**************************** */
+/* メニュー全体の箱 */
+.hamburger-menu-container {
+    position: relative;        /* 子要素（.nav-links）を絶対位置で配置する基準にする */
+    display: flex;             /* 中のメニューを横並びにする */
+    justify-content: flex-end; /* 中のメニューを右端に寄せる */
+    align-items: center;       /* 中のメニューを垂直方向の真ん中に揃える */
+    cursor: pointer;           /* マウスのカーソルを指マーク */
+    z-index: 1000;             /* 他の要素より一番手前に表示させる */
+	flex-shrink: 0;			   /* つぶれないようにする */
+}
+
+/* ハンバーガーアイコンの箱 */
+.hamburger-icon {
+    display: block;            /* ブロック要素にする */
+    width: 30px;               /* 幅 */
+    height: 25px;              /* 高さ */
+    position: relative;        /* 中のバー（.bar）を絶対位置で配置 */
+    transition: transform 0.3s ease-in-out; /* 動きを滑らかにする */
+}
+
+/* ハンバーガーアイコンの線 */
+.bar {
+    display: block;            /* ブロック要素にする */
+    width: 100%;               /* 親要素（.hamburger-icon）と同じ幅にする */
+    height: 3px;               /* 高さ */
+    background-color: #333;    /* 色 */
+    position: absolute;        /* 親要素（.hamburger-icon）を基準に位置を決める */
+    left: 0;                   /* 左端 */
+    transition: all 0.3s ease-in-out; /* 動きを滑らかにする */
+}
+
+/* 1本目の線（一番上） */
+.bar:nth-child(1) {
+    top: 0; /* 親要素の箱の一番上にくっつける */
+}
+
+/* 2本目の線（真ん中） */
+.bar:nth-child(2) {
+    top: 50%;                 /* 親要素の箱の真ん中に持っていく */
+    transform: translateY(-50%); /* 上に半分ずらす */
+}
+
+/* 3本目の線（一番下） */
+.bar:nth-child(3) {
+    bottom: 0; /* 親要素の箱の一番下にくっつける */
+}
+
+/* メニューの項目を囲むリスト（ul） */
+.nav-links {
+    display: flex;             /* 中の要素を縦並び */
+    flex-direction: column;    /* 縦に並べる */
+    position: fixed;           /* 画面の決まった位置に固定 スクロールしても位置を保持 */
+    top: 0;                    /* 画面の一番上 */
+    right: 0;                  /* 画面の一番右 */
+    width: 250px;              /* メニューの幅 */
+    height: 100vh;             /* メニューの高さ */
+	border-radius: 50px; /* 角を丸くする */
+    background-color: white;   /* 背景色 */
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5); /* 左側に影 */
+    padding: 60px 20px;        /* 内側の余白 */
+    list-style: none;          /* リストの黒い点無し */
+    transform: translateX(100%); /* メニューを右側に自分の幅分ずらして、画面の外に隠す */
+    transition: transform 0.3s ease-in-out; /* 動きを滑らかにする */
+}
+
+/* JavaScriptでこのクラスを付けたり外したりする */
+.nav-links.active {
+    transform: translateX(0); /* 隠してたメニューを元の位置に戻す */
+}
+
+/* アクティブになった時のハンバーガーアイコンの変化 */
+.hamburger-icon.active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg); /* 一番上の線を真ん中、45度回転させて斜めにする */
+}
+.hamburger-icon.active .bar:nth-child(2) {
+    opacity: 0; /* 真ん中の線を透明にして消す */
+}
+.hamburger-icon.active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg); /* 一番下の線を真ん中、-45度回転させて斜めにする */
+}
+
+/* メニューの中にあるリンク */
+.nav-links a {
+    color: #333;             /* 文字色 */
+    text-decoration: none;   /* 下線を消す */
+    padding: 15px 0;         /* 上下余白 */
+    border-bottom: 1px solid #ddd; /* 下に薄い線を引く */
+    display: block;          /* リンク全体がクリックできるようにブロック要素にする */
+}
+
+.nav-links a:hover {
+    color: #ff9900;          /* マウスを乗せたときの文字色 */
+}
+
+/* ==================== 基本設定 ==================== */
+
+/* 全体の基本フォント・背景・文字色など */
+body {
+	background-color: #fff8f0;
+	margin: 0;
+	font-family: sans-serif;
+	min-height: 100vh;
+	color: #333;
+}
+
+/* 見出し（大） */
+h1 {
+    font-size: 2.5em;
+    color: #ff9900;
+    margin-bottom: 10px;
+}
+
+/* 見出し（中） */
+h2 {
+    font-size: 1.5em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* 段落テキスト */
+p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+/* ==================== 共通：ボタン・リンクスタイル ==================== */
+
+/* ボタン風リンク（共通） */
+.button-link {
+    display: inline-block;
+    background-color: #ff9900;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1em;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* ボタンリンクのホバー時 */
+.button-link:hover {
+    background-color: #e68a00;
+}
+
+/* ボタンリンク：幅100% */
+.button-link.full-width {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 0;
+    margin: 20px 0 10px 0;
+    font-size: 1em;
+    text-align: center;
+}
+
+/* 戻るリンク */
+.back-link {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #ff9900;
+    font-size: 0.9em;
+}
+
+/* 戻るリンクのホバー時 */
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* ==================== ログイン・登録ページ ==================== */
+
+/* ログイン・登録ページの中央寄せ用ラッパー */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* ログイン・登録フォームの全体ボックス */
+.login-container {
+    max-width: 400px;
+    width: 100%;
+    padding: 30px 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 40px auto;
+}
+
+/* ログイン・登録見出し */
+.login-container h1 {
+    color: #ff9900;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+}
+
+/* ラベルのスタイル */
+.login-container label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 0.95em;
+    color: #333;
+}
+
+/* テキスト入力欄のスタイル */
+.form-group input[type="text"],
+.form-group input[type="password"] {
+	width: 100%;                /* 幅は最大 */
+	    padding: 10px 8px;          /* 少し広めの内側余白 */
+	    margin-top: 5px;            /* 上の余白はそのまま */
+	    border: 1px solid #ddd;     /* 色は.form-groupと同じ薄グレー */
+	    border-radius: 4px;         /* 少し控えめな丸み */
+	    font-size: 1em;             /* 標準のフォントサイズ */
+	    box-sizing: border-box;     /* 枠・余白を含めた幅指定 */
+	}
+
+/* プロフィール入力欄のスタイル */
+.profile-textarea {
+    width: 100%;
+    padding: 10px 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* エラーメッセージ表示 */
+.error-msg {
+    color: red;
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+/* ==================== 確認画面テーブル ==================== */
+.confirm-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.confirm-table th,
+.confirm-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    vertical-align: top;
+}
+
+.confirm-table th {
+    width: 30%;
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.confirm-table td.profile-cell {
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.profile-box {
+    display: block;
+    width: 100%;
+    min-height: 120px;
+    max-height: 120px;
+    overflow-y: auto;
+    overflow-x: hidden;  /* 横スクロール禁止 */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    white-space: pre-wrap;       /* 改行＆折り返し対応 */
+    word-break: break-word;      /* 長文でも折り返す */
+    line-height: 1.5;
+    font-size: 0.95em;
+    box-sizing: border-box;
+}
+
+/* ==================== フォーム補助スタイル ==================== */
+
+/* 入力補足ルール（フォーム下の説明など） */
+form small {
+    font-size: 0.9em;
+    color: #666;
+    display: block;
+    margin-top: 2px;
+    margin-bottom: 10px;
+}

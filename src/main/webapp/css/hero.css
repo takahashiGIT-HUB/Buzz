@@ -1,0 +1,93 @@
+/* ヒーローセクション全体 */
+.hero-section {
+    position: relative; /* 子要素の配置基準 */
+    width: 100%; /* 幅 */
+    height: 600px; /* 高さ */
+    overflow: hidden; /* はみ出し隠す */
+    margin-top: 0px; /* 上余白 */
+    margin-bottom: 0; /* 下余白 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 影 */
+    z-index: -1; /* 重なり順（一番奥） */
+}
+
+/* ヒーローセクションの背景になるスライドショー */
+.hero-background-slideshow {
+    position: absolute; /* 親要素を基準に配置 */
+    top: 0; /* 上端に配置 */
+    left: 0; /* 左端に配置 */
+    width: 100%; /* 幅 */
+    height: 100%; /* 高さ */
+    z-index: 1; /* 重なり順 */
+    overflow: hidden; /* はみ出し隠す */
+}
+
+/* オーバーレイ（半透明の黒い層） */
+.hero-overlay {
+    position: absolute; /* 親要素を基準に配置 */
+    top: 0; /* 上端に配置 */
+    left: 0; /* 左端に配置 */
+    width: 100%; /* 幅 */
+    height: 100%; /* 高さ */
+    background-color: rgba(0, 0, 0, 0.2); /* 背景色（半透明黒） */
+    z-index: 2; /* 重なり順 */
+    display: flex; /* Flexbox */
+    flex-direction: column; /* 縦並び */
+    justify-content: center; /* 縦方向中央揃え */
+    align-items: center; /* 横方向中央揃え */
+    padding-top: 50px; /* 上パディング */
+	pointer-events: none;
+}
+
+/* ハンバーガーメニューの背景色 */
+.hamburger-menu-container .nav-links {
+    background-color: white; /* 背景色 */
+}
+
+
+/* ヒーローセクション内のコンテンツ */
+.hero-content {
+    flex-grow: 1; /* 残りスペースを使う */
+    display: flex; /* Flexbox */
+    flex-direction: column; /* 縦並び */
+    justify-content: center; /* 縦方向中央揃え */
+    align-items: center; /* 横方向中央揃え */
+    padding-top: 100px; /* 上パディング */
+    text-align: center; /* 文字中央揃え */
+    color: white; /* 文字色 */
+    z-index: 3; /* 重なり順 */
+    width: 100%; /* 幅 */
+	pointer-events: auto;
+}
+
+/* サイトのキャッチフレーズ */
+.site-catchphrase {
+    font-size: 3.5em; /* 文字サイズ */
+    margin-bottom: 10px; /* 下余白 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 文字影 */
+    font-weight: bold; /* 文字の太さ */
+    color: #fff8f0; /* 文字色 */
+	font-family: "Zen Kurenaido", sans-serif;
+}
+
+/* サイトの説明文 */
+.site-description {
+    font-size: 1.5em; /* 文字サイズ */
+    line-height: 1.5; /* 行の高さ */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* 文字影 */
+    color: #f0f0f0; /* 文字色 */
+}
+
+/* コンテンツの汎用コンテナ */
+.container {
+    margin-top: 30px; /* 上余白 */
+    position: relative; /* 子要素の配置基準 */
+    z-index: 1; /* 重なり順 */
+}
+
+/* body要素全体 */
+body {
+  background-color: #fff8f0; /* 背景色 */
+  margin: 0; /* 外余白 */
+  font-family: sans-serif; /* フォント */
+  min-height: 100vh; /* 最小高さ */
+}

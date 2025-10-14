@@ -1,0 +1,75 @@
+/* カルーセル全体のコンテナ */
+.slideshow-container {
+  /* max-width: 1000px; （コメントアウト済み） */
+  width: 100%; /* 幅 */
+  position: relative; /* 子要素の配置基準 */
+  margin: auto; /* 左右中央揃え */
+  overflow: hidden; /* はみ出し隠す */
+  border-radius: 12px; /* 角丸 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 影 */
+  height: 600px; /* 高さ */
+}
+
+/* 各スライドのコンテナ */
+.slides {
+  display: flex; /* 横並び */
+  transition: transform 0.5s ease-in-out; /* アニメーション（移動） */
+  width: calc(100% * 7); /* 全体の幅（7枚分） */
+  height: 100%; /* 高さ */
+}
+
+/* 各スライド内の画像 */
+.slides img {
+  width: calc(100% / 7); /* 画像の幅（1枚分） */
+  height: 100%; /* 高さ */
+  object-fit: cover; /* 縦横比を保ちつつ要素に合わせる */
+  flex-shrink: 0; /* 縮まない */
+  border-radius: 12px; /* 角丸 */
+}
+
+/* 次へ/前へ ボタン */
+.prev, .next {
+  cursor: pointer; /* カーソル形状 */
+  position: absolute; /* 絶対配置 */
+  top: 50%; /* 上から中央 */
+  width: auto; /* 幅（内容に合わせる） */
+  padding: 16px; /* 内側の余白 */
+  margin-top: -22px; /* 上余白（調整） */
+  color: white; /* 文字色 */
+  font-weight: bold; /* 文字の太さ */
+  font-size: 24px; /* 文字サイズ */
+  transition: 0.6s ease; /* 変化アニメーション */
+  border-radius: 0 3px 3px 0; /* 角丸 */
+  user-select: none; /* テキスト選択不可 */
+  background-color: rgba(0,0,0,0.5); /* 背景色（半透明黒） */
+  z-index: 10000; /* 前面に置く */
+}
+
+/* 次へボタンの位置 */
+.next {
+  right: 0; /* 右端に配置 */
+  border-radius: 3px 0 0 3px; /* 角丸 */
+}
+
+/* ホバー時の背景色 */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8); /* 背景色（濃い半透明黒） */
+}
+
+/* インジケーター（ドット） */
+.dot {
+  cursor: pointer; /* カーソル形状 */
+  height: 12px; /* 高さ */
+  width: 12px; /* 幅 */
+  margin: 0 4px; /* 外側の余白 */
+  background-color: #bbb; /* 背景色（グレー） */
+  border-radius: 50%; /* 完全な丸 */
+  display: inline-block; /* インラインブロック要素 */
+  transition: background-color 0.6s ease; /* 変化アニメーション */
+  z-index: 10; /* 前面に置く */
+}
+
+/* アクティブなドット */
+.active, .dot:hover {
+  background-color: #ff9900; /* 背景色（オレンジ） */
+}
